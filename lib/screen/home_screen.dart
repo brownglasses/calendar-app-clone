@@ -1,5 +1,7 @@
+import 'package:project_c/colors.dart';
 import 'package:project_c/component/main_calendar.dart';
 import 'package:flutter/material.dart';
+import 'package:project_c/component/schedule_bottom_sheet.dart';
 import 'package:project_c/component/schedule_card.dart';
 import 'package:project_c/component/today_banner.dart';
 
@@ -27,9 +29,22 @@ class _HomeScreenState extends State<HomeScreen> {
             onDaySelected: onDaySelected,
           ),
           TodayBanner(selectedDate: selectedDate, count: 0),
+          const SizedBox(
+            height: 8.0,
+          ),
           const ScheduleCard(startTime: 12, endTime: 14, content: "프로그래밍 공부"),
         ],
       )),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: PRIMARY_COLOR,
+          onPressed: () {
+            showModalBottomSheet(
+                context: context,
+                isDismissible: true,
+                builder: (_) => const ScheduleBottomSheet(),
+                isScrollControlled: true);
+          },
+          child: const Icon(Icons.add)),
     );
   }
 
