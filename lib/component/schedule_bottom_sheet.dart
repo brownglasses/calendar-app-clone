@@ -56,7 +56,7 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                     onSaved: (String? val) {
                       endTime = int.parse(val!);
                     },
-                    validator: contentValidator,
+                    validator: timeValidator,
                   )),
                 ],
               ),
